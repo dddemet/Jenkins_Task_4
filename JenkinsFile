@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('BUILD') {
             steps{
-                sh "docker build -t jenkinsimage ."
+                sh "docker build -t nginxlab ."
             }
         }
         stage('TEST') {
