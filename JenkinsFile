@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('BUILD') {
             steps{
-                sh "docker build -t Jenkins_image . "
+                sh "docker build -t jenkinsimage ."
             }
         }
         stage('TEST') {
