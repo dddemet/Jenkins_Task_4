@@ -15,7 +15,7 @@ pipeline {
 	  	}
         stage('PUSH') {
             steps{
-                sh "echo TEST"
+                sh "docker pull dddemet777/lab2"
             }
         }
     }
