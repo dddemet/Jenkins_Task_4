@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('BUILD') {
             steps{
-                sh "docker build -t dddemet777/lab2:$(date '+%Y-%m-%d-%H-%M') ."
+                sh "docker build -t dddemet777/lab2:\$(date '+%Y-%m-%d-%H-%M') ."
             }
         }
         stage('TEST') {
