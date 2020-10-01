@@ -5,17 +5,17 @@ pipeline {
     stages {
         stage('BUILD') {
             steps{
-                sh "TEST"
+                sh "echo TEST"
             }
         }
         stage('TEST') {
 			steps {
-                sh "TEST"
+                sh "echo TEST"
             }
 	  	}
         stage('PUSH') {
             steps{
-                sh "TEST"
+                sh "echo TEST"
             }
         }
     }
