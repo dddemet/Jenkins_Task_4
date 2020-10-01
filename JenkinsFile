@@ -16,7 +16,7 @@ pipeline {
         stage('PUSH') {
             steps{
 	        	withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'sdocker login -u $USERNAME -p $PASSWORD'
+                    sh 'docker login -u $USERNAME -p $PASSWORD'
                     sh "docker push dddemet777/lab2" 
 		        }
             }
