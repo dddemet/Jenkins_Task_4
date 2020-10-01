@@ -2,10 +2,6 @@
 
 pipeline {
 	agent any
-    parameters {
-        disableConcurrentBuilds()
-        timestamps()
-    }
     stages {
         stage('BUILD') {
             steps{
@@ -20,11 +16,6 @@ pipeline {
         stage('PUSH') {
             steps{
                 sh "TEST"
-            }
-        }
-        post {
-            always {
-                echo "TEST"
             }
         }
     }
