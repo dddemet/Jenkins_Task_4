@@ -7,24 +7,25 @@ pipeline {
         timestamps()
     }
     stages {
-        stage('build') {
+        stage('BUILD') {
             steps{
                 sh "TEST"
             }
         }
-        stage('test') {
+        stage('TEST') {
 			steps {
                 sh "TEST"
             }
 	  	}
-        stage('push') {
+        stage('PUSH') {
             steps{
                 sh "TEST"
             }
         }
-    post {
-        always {
-            echo "TEST"
+        post {
+            always {
+                echo "TEST"
+            }
         }
     }
 }
