@@ -7,17 +7,17 @@ pipeline {
         timestamps()
     }
     stages {
-        stage('TEST') {
+        stage('build') {
             steps{
                 sh "TEST"
             }
         }
-        stage('Build SAPI') {
+        stage('test') {
 			steps {
                 sh "TEST"
             }
 	  	}
-        stage('Deploy SAPI') {
+        stage('push') {
             steps{
                 sh "TEST"
             }
