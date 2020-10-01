@@ -1,0 +1,30 @@
+#!/usr/bin/env groovy
+
+pipeline {
+	agent any
+    parameters {
+        disableConcurrentBuilds()
+        timestamps()
+    }
+    stages {
+        stage('TEST') {
+            steps{
+                sh "TEST"
+            }
+        }
+        stage('Build SAPI') {
+			steps {
+                sh "TEST"
+            }
+	  	}
+        stage('Deploy SAPI') {
+            steps{
+                sh "TEST"
+            }
+        }
+    post {
+        always {
+            echo "TEST"
+        }
+    }
+}
