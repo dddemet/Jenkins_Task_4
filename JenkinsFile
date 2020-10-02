@@ -22,23 +22,4 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            emailext (
-                body: 'Build successful',
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job \"${env.JOB_NAME}\"",
-                recipientProviders: [requestor()],  
-                to: 'DDDemet888@gmail.com'
-            )    
-        }
-
-        failure {
-            emailext (
-                body: 'Build failed',
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job \"${env.JOB_NAME}\"",
-                recipientProviders: [requestor()],  
-                to: 'DDDemet888@gmail.com'
-            )
-        }
-    }
-}
+    
