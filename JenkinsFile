@@ -12,6 +12,32 @@ pipeline {
 			steps {
                 sh "echo TEST"
             }
-  	}
+	  	}
+        stage('PUSH') {
+            steps{
+	        	withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh 'docker login -u $USERNAME -p $PASSWORD'
+                    sh "docker push dddemet777/lab2" 
+		        }
+            }
+        }
+    }
+	post {
+        success {
+            emailext (
+                body: 'Build successful',
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job \"${env.JOB_NAME}\"",
+                recipientProviders: [requestor()],  
+                to: 'DDDemet888@gmail.com'
+            )    
+        }
+        failure {
+            emailext (
+                body: 'Build failed',
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job \"${env.JOB_NAME}\"",
+                recipientProviders: [requestor()],  
+                to: 'DDDemet888@gmail.com'
+            )
+        }
     }
 }
